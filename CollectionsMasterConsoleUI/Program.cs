@@ -16,8 +16,9 @@ namespace CollectionsMasterConsoleUI
             #region Arrays
             //TODO: Create an integer Array of size 50
 
-            var size50 = new int[10];
+            var size50 = new int[20];
             //TODO: Create a method to populate the number array with 50 random numbers that are between 0 and 50
+
 
             Populater(size50);
 
@@ -35,26 +36,22 @@ namespace CollectionsMasterConsoleUI
 
             //TODO: Reverse the contents of the array and then print the array out to the console.
             //Try for 2 different ways
-            /*  1) First way, using a custom method => Hint: Array._____(); 
-             *  
+            /*  1) First way, using a custom method => Hint: Array._____();   
                 2) Second way, Create a custom method (scroll to bottom of page to find ⬇⬇⬇)
             */
-            //   Array.Reverse(size50);
 
-            //  NumberPrinter(size50);
+            Console.WriteLine("All Numbers Reversed:");
+            Array.Reverse(size50);
+            NumberPrinter(size50);
 
-            //  ReverseArray(size50);
-            //NumberPrinter(size50);
+            Console.WriteLine("---------REVERSE CUSTOM------------");
 
-            //    Console.WriteLine("All Numbers Reversed:");
 
-            //    Console.WriteLine("---------REVERSE CUSTOM------------");
+            ReverseArray(size50);
 
-            //    Console.WriteLine("-------------------");
+            Console.WriteLine("-------------------");
 
             //    //TODO: Create a method that will set numbers that are a multiple of 3 to zero then print to the console all numbers
-
-
             Console.WriteLine("Multiple of three = 0: ");
             ThreeKiller(size50);
 
@@ -63,9 +60,10 @@ namespace CollectionsMasterConsoleUI
             //    //TODO: Sort the array in order now
             //    /*      Hint: Array.____()      */
             Console.WriteLine("Sorted numbers:");
-
             Array.Sort(size50);
             NumberPrinter(size50);
+
+
             Console.WriteLine("\n************End Arrays*************** \n");
             #endregion
 
@@ -89,11 +87,9 @@ namespace CollectionsMasterConsoleUI
 
             //TODO: Create a method that prints if a user number is present in the list
             //Remember: What if the user types "abc" accident your app should handle that!
-            ;
+
             int searchedNumber;
             bool convertCompleted;
-
-            ;
 
             do
             {
@@ -122,9 +118,9 @@ namespace CollectionsMasterConsoleUI
 
             //TODO: Sort the list then print results
             Console.WriteLine("Sorted Evens!!");
-
             numbers.Sort();
             NumberPrinter(numbers);
+
             Console.WriteLine("------------------");
 
             //TODO: Convert the list to an array and store that into a variable
@@ -132,7 +128,7 @@ namespace CollectionsMasterConsoleUI
             int[] convertList = numbers.ToArray();
 
             //TODO: Clear the list
-            //  numbers.Clear();
+            numbers.Clear();
 
             #endregion
         }
@@ -182,7 +178,7 @@ namespace CollectionsMasterConsoleUI
 
         private static void Populater(List<int> numberList)
         {
-            while (numberList.Count < 9)//QUESTION THIS //VIDEO DID 51
+            while (numberList.Count < 10)
             {
                 Random rng = new Random();
                 numberList.Add(rng.Next(0, 10));
@@ -203,24 +199,21 @@ namespace CollectionsMasterConsoleUI
 
         private static void ReverseArray(int[] array)
         {
-            var downCounter = array.Length - 1;
 
-            for (int i = 0; i <= array.Length - 1; i++)
+            var i = 0;
+            var j = array.Length - 1; //equals the last position in the array
+
+            while (i < j)
             {
-                {
-                    array[i] = array[downCounter];
-                    array[downCounter] = array[i];
-                    downCounter--;
-                }
-                //for (int num = 3; num <= array.Length-1 && num >= 0; num--)
-                //{
-                //    array[i++] = array[num];
-
-                //}
-
-                ;
-
+                var temp = array[i];
+                array[i] = array[j];
+                array[j] = temp;
+                i++;
+                j--;
             }
+
+            NumberPrinter(array);
+
         }
 
         /// <summary>
