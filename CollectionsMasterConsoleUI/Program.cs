@@ -178,10 +178,10 @@ namespace CollectionsMasterConsoleUI
 
         private static void Populater(List<int> numberList)
         {
-            while (numberList.Count < 10)
+            while (numberList.Count < 50)
             {
                 Random rng = new Random();
-                numberList.Add(rng.Next(0, 10));
+                numberList.Add(rng.Next(1, 50));
             }
             NumberPrinter(numberList);
         }
@@ -193,7 +193,7 @@ namespace CollectionsMasterConsoleUI
             for (int i = 0; i < numbers.Length; i++)
             {
                 Random rng = new Random();
-                numbers[i] = rng.Next(0, 50);
+                numbers[i] = rng.Next(1, 50);
             }
         }
 
